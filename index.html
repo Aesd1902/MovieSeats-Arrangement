@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Seats</title>
+    <style>
+        .occupied {
+            background-color: red;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+        }
+        .available {
+            background-color: green;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="seatingArrangement"></div>
+
+    <script>
+        var seats = [
+            [false, false, false, false, false],
+            [false, false, false, false, false],
+            [false, false, false, false, false],
+            [false, false, false, false, false],
+            [false, false, false, false, false]
+        ];
+
+        seats[0][0] = true;
+        seats[2][3] = true;
+        seats[4][1] = true;
+
+        var seatingArrangementDiv = document.getElementById('seatingArrangement');
+
+        for (var row = 0; row < seats.length; row++) {
+            for (var col = 0; col < seats[row].length; col++) {
+                var seatElement = document.createElement('div');
+                seatElement.className = seats[row][col] ? 'occupied' : 'available';
+                seatingArrangementDiv.appendChild(seatElement);
+            }
+            seatingArrangementDiv.appendChild(document.createElement('br'));
+        }
+    </script>
+</body>
+</html>
